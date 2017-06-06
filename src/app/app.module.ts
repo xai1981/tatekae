@@ -7,6 +7,8 @@ import { AppComponent } from './components/app/app.component';
 import { AccountComponent } from './components/account/account.component';
 import { AppFormComponent } from './components/app-form/app-form.component';
 
+import { AccountService } from './services/account.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,9 @@ import { AppFormComponent } from './components/app-form/app-form.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    AccountService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

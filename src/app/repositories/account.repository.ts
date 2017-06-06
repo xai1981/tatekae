@@ -1,8 +1,11 @@
 import {Account} from '../entities/account';
 
 export class AccountRepository {
+    accounts: Array<Account> = new Array<Account>();
+
     constructor(
-        private accounts: Array<Account>
+      // TODO Correspond Accounts param
+      // private accounts: Array<Account>
     ) {}
 
     getAll(): Array<Account> {

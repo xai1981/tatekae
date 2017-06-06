@@ -1,13 +1,11 @@
-<div>
-  <label for="account">出金元</label>
-  <select id="account" name="account">
-    <option value="0">選択しない</option>
-    <option value="1">お財布</option>
-    <option value="2">貯金</option>
-    <option value="3">銀行</option>
-    <option value="4">クレジットカード</option>
-    <option value="5">SUICA</option>
-    <option value="6">PASMO</option>
-    <option value="7">その他</option>
-  </select>
-</div>
+<ng-container *ngIf="accounts">
+  <div>
+    <label for="account">出金元</label>
+    <select id="account" name="account">
+      <ng-container *ngFor="let account of accounts">
+        <!-- XXX getXxx's () is unnecessary. Because declared setter. -->
+        <option value="{{account.getId}}">{{account.getName}}</option>
+      </ng-container>
+    </select>
+  </div>
+</ng-container>

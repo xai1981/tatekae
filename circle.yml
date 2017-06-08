@@ -1,0 +1,7 @@
+test:
+  pre:
+    - echo "----- start test ----"
+  override:
+    - npm tslint src/**/*.ts
+  post:
+    - echo "----- end test -----"

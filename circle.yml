@@ -1,7 +1,12 @@
+machine:
+  node:
+    version: 7.5.0
+  post:
+    - npm install -g npm@4
 test:
   pre:
     - echo "----- start test ----"
   override:
-    - npm tslint src/**/*.ts
+    - tslint src/**/*.ts
   post:
     - echo "----- end test -----"

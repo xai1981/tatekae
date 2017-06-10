@@ -1,21 +1,21 @@
 <h2>my-form</h2>
-<form>
+<form #appForm="ngForm" (ngSubmit)="onSubmit(appForm.value)">
   <div>
     <label for="date">日付</label>
-    <input type="date" name="date">
+    <input type="date" name="date" ngModel>
   </div>
   <div>
     <label for="amount">自分の飲み代</label>
-    <input type="input" name="amount">
+    <input type="number" name="amount" ngModel>
   </div>
   <div>
-    <label for="payment">建替金額</label>
-    <input type="input" name="payment">
+    <label for="payment">立て替え金額</label>
+    <input type="number" name="payment" ngModel>
   </div>
   <account></account>
   <div>
-    <label for="repayment">建替返済金額</label>
-    <input type="input" name="repayment">
+    <label for="repayment">立て替え返済金額</label>
+    <input type="number" name="repayment" ngModel>
   </div>
   <button type="submit">送信</button>
   <button type="reset">クリア</button>

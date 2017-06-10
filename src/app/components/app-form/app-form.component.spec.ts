@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { AppFormComponent } from './app-form.component';
+import { AccountComponent } from '../account/account.component';
 
 describe('AppFormComponent', () => {
   let component: AppFormComponent;
@@ -11,7 +12,10 @@ describe('AppFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppFormComponent ]
+      declarations: [
+        AppFormComponent,
+        AccountComponent,
+      ]
     })
     .compileComponents();
   }));

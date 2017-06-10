@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppFormComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  onSubmit(data: Object): void {
+    console.log(data);
+  }
 }

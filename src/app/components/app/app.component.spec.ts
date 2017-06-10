@@ -4,10 +4,14 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { AppFormComponent } from '../app-form/app-form.component';
 import { AccountComponent } from '../account/account.component';
+import { AccountService } from '../../services/account.service';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      providers: [
+        AccountService,
+      ],
       declarations: [
         AppComponent,
         AppFormComponent,

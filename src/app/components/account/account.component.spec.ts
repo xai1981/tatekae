@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { AccountComponent } from './account.component';
+import { AccountService } from '../../services/account.service';
 
 describe('AccountComponent', () => {
   let component: AccountComponent;
@@ -11,6 +12,7 @@ describe('AccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [ AccountService ],
       declarations: [ AccountComponent ]
     })
     .compileComponents();

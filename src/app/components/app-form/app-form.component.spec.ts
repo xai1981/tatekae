@@ -5,6 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { AppFormComponent } from './app-form.component';
 import { AccountComponent } from '../account/account.component';
+import { AccountService } from '../../services/account.service';
 
 describe('AppFormComponent', () => {
   let component: AppFormComponent;
@@ -12,6 +13,9 @@ describe('AppFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [
+        AccountService,
+      ]
       declarations: [
         AppFormComponent,
         AccountComponent,

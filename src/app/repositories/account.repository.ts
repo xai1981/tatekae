@@ -1,12 +1,9 @@
 import {Account} from '../entities/account';
 
 export class AccountRepository {
-    accounts: Array<Account> = new Array<Account>();
+    private accounts: Array<Account> = [];
 
-    constructor(
-      // TODO Correspond Accounts param
-      // private accounts: Array<Account>
-    ) {}
+    constructor() {}
 
     getAll(): Array<Account> {
         this.accounts.push(new Account(1, '財布'));

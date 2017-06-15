@@ -1,10 +1,9 @@
 import {Payment} from '../entities/payment';
 
 export class PaymentRepository {
-    constructor(
-        private payments: Array<Payment>
-    ) {
-    }
+    private payments: Array<Payment> = [];
+
+    constructor() { }
 
     push(payment: Payment) {
         this.payments.push(payment);

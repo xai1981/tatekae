@@ -1,10 +1,9 @@
 import {Income} from '../entities/income';
 
 export class IncomeRepository {
-    constructor(
-        private incomes: Array<Income>
-    ) {
-    }
+    private incomes: Array<Income> = [];
+
+    constructor() { }
 
     push(income: Income) {
         this.incomes.push(income);

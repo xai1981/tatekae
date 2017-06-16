@@ -1,22 +1,44 @@
 <h2>my-form</h2>
-<form #appForm="ngForm" (ngSubmit)="onSubmit(appForm.value)">
-  <div>
-    <label for="date">日付</label>
-    <input type="date" name="date" ngModel>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+  <div class="form-group"
+       [class.has-success]="date.valid"
+       [class.has-danger]="!date.valid && date.touched">
+    <label class="form-control-label" for="inputDate">日付</label>
+    <input class="form-control" type="date" id="inputDate" [formControl]="date">
+    <ng-container *ngIf="!date.valid && date.touched">
+      <div class="alert alert-danger">入力してください。</div>
+    </ng-container>
+  </div>
+  <div class="form-group"
+       [class.has-success]="amount.valid"
+       [class.has-danger]="!amount.valid && amount.touched">
+    <label class="form-control-label" for="inputAmount">自分の飲み代</label>
+    <input class="form-control" type="number" id="inputAmount" [formControl]="amount">
+    <ng-container *ngIf="!amount.valid && amount.touched">
+      <div class="alert alert-danger">入力してください。</div>
+    </ng-container>
+  </div>
+  <div class="form-group"
+       [class.has-success]="payment.valid"
+       [class.has-danger]="!payment.valid && payment.touched">
+    <label class="form-control-label" for="inputPayment">立て替え金額</label>
+    <input class="form-control" type="number" id="inputPayment" [formControl]="payment">
+    <ng-container *ngIf="!payment.valid && payment.touched">
+      <div class="alert alert-danger">入力してください。</div>
+    </ng-container>
   </div>
   <div>
-    <label for="amount">自分の飲み代</label>
-    <input type="number" name="amount" ngModel>
+    <account></account>
   </div>
-  <div>
-    <label for="payment">立て替え金額</label>
-    <input type="number" name="payment" ngModel>
+  <div class="form-group"
+       [class.has-success]="repayment.valid"
+       [class.has-danger]="!repayment.valid && repayment.touched">
+    <label class="form-control-label" for="inputRepayment">立て替え金額</label>
+    <input class="form-control" type="number" id="inputRepayment" [formControl]="repayment">
+    <ng-container *ngIf="!repayment.valid && repayment.touched">
+      <div class="alert alert-danger">入力してください。</div>
+    </ng-container>
   </div>
-  <account></account>
-  <div>
-    <label for="repayment">立て替え返済金額</label>
-    <input type="number" name="repayment" ngModel>
-  </div>
-  <button type="submit">送信</button>
-  <button type="reset">クリア</button>
+  <button class="btn" type="submit" [disabled]="!myForm.valid">送信</button>
+  <button class="btn" type="reset">クリア</button>
 </form>

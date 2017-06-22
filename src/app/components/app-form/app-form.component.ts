@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -12,7 +12,9 @@ export class AppFormComponent implements OnInit {
   amount: AbstractControl;
   payment: AbstractControl;
   repayment: AbstractControl;
+  account: FormControl;
 
+  // XXX form 系の初期化は ngOnInit で処理した方がよいかも。
   constructor(formBuilder: FormBuilder) {
     this.myForm = formBuilder.group({
       'date': ['', Validators.required],
@@ -24,6 +26,9 @@ export class AppFormComponent implements OnInit {
     this.amount = this.myForm.controls['amount'];
     this.payment = this.myForm.controls['payment'];
     this.repayment = this.myForm.controls['repayment'];
+
+    this.account = new FormControl('', Validators.required);
+    this.myForm.addControl('account', this.account);
   }
 
   ngOnInit() {

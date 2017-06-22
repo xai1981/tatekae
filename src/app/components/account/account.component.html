@@ -1,11 +1,19 @@
-<ng-container *ngIf="accounts">
-  <div>
-    <label for="account">出金元</label>
-    <select id="account" name="account" ngModel>
-      <ng-container *ngFor="let account of accounts">
-        <!-- XXX getXxx's () is unnecessary. Because declared setter. -->
-        <option value="{{account.getId}}">{{account.getName}}</option>
-      </ng-container>
-    </select>
-  </div>
-</ng-container>
+<div class="form-group"
+   [class.has-success]="ngControl.valid"
+   [class.has-danger]="!ngControl.valid && ngControl.touched">
+  <label class="form-control-label" for="">アカウント</label>
+  <select class="form-control" id="" [(ngModel)]="value" (ngModelChange)="writeValue($event)">
+    <!--
+    <option [ngValue]="" selected></option>
+    -->
+    <ng-container *ngFor="let account of accounts">
+      <!-- XXX getXxx's () is unnecessary. Because declared setter. -->
+      <option [ngValue]="account.getId">{{account.getName}}</option>
+    </ng-container>
+  </select>
+  <ng-container *ngIf="ngControl && ngControl.invalid && (ngControl.touched || ngControl.dirty)">
+    <ng-container *ngIf="ngControl.errors.required">
+      <div class="alert alert-danger">入力してください。</div>
+    </ng-container>
+  </ng-container>
+</div>
